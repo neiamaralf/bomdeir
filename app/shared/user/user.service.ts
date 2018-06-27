@@ -64,7 +64,10 @@ export class UserService {
           if (this.user.id == undefined)
             this.user.super = 2;
           this.saveusr();
-          this.routerExtensions.navigate(["/items"], { clearHistory: true })
+          if (this.user.super == 2)
+            this.routerExtensions.navigate(["/home"], { clearHistory: true })
+          else
+            this.routerExtensions.navigate(["/items"], { clearHistory: true })
         }
         else
           alert((<any>res).msg);
@@ -104,7 +107,10 @@ export class UserService {
         if ((<any>res).status == 'success') {
           console.dir((<any>res).result);
           this.user.goodtoken = true;
-          this.routerExtensions.navigate(["/items"], { clearHistory: true });
+          if (this.user.super == 2)
+            this.routerExtensions.navigate(["/home"], { clearHistory: true })
+          else
+            this.routerExtensions.navigate(["/items"], { clearHistory: true })
           console.dir(this.user);
         } else {
           console.log("token inválido");

@@ -21,6 +21,10 @@ export class ItemsComponent implements OnInit {
         this.userService.logout();
     }
 
+    onclick(item){
+        console.dir(item);
+    }
+
     ngOnInit(): void {
         this.items = this.itemService.getItems();
     }

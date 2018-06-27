@@ -3,7 +3,8 @@
         <Label style="padding-right: 30" text="SAIR" color="red"></Label>
     </ActionItem>
 </ActionBar>
-<StackLayout class="page">
+<!--
+    <StackLayout class="page">
     <ListView [items]="items" class="list-group">
         <ng-template let-item="item">
             <StackLayout orientation="horizontal">
@@ -12,4 +13,21 @@
             </StackLayout>
         </ng-template>
     </ListView>
+</StackLayout>
+-->
+<StackLayout class="page">
+    <GridLayout rows="*,auto,auto">
+        <ScrollView style="margin-top: 10">
+            <StackLayout>
+                <WrapLayout horizontalAlignment="center">
+                    <CardView radius="5" class="innerCardStyle" width="40%" *ngFor="let item of items">
+                        <StackLayout horizontalAlignment="center" (tap)="onclick(item)">
+                            <Image width="100" src="{{ 'http://www.athena3d.com.br/bomdeir/imgs/'+item.name+ '.png'}}"></Image>
+                            <Label horizontalAlignment="center" textWrap="true" [text]="item.name"></Label>
+                        </StackLayout>
+                    </CardView>
+                </WrapLayout>
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
 </StackLayout>

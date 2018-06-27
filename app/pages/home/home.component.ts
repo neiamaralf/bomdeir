@@ -1,15 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { UserService } from "../../shared/user/user.service";
-import { Page } from "ui/page";
-import { Color } from "color";
-import { View } from "ui/core/view";
 import { RouterExtensions } from "nativescript-angular/router";
-import * as switchModule from "tns-core-modules/ui/switch";
 
 @Component({
-  selector: "my-app",
-  templateUrl: "./pages/login/login.html",
-  styleUrls: ["pages/login/login-common.css", "pages/login/login.css"]
+  templateUrl: "./home.html",
+  moduleId: module.id,
 })
 export class HomeComponent implements OnInit {
   isLoggingIn = true;
@@ -17,37 +12,27 @@ export class HomeComponent implements OnInit {
 
   @ViewChild("container") container: ElementRef;
 
-  constructor( public userService: UserService, private page: Page) {
-    this.verifytoken();
+  constructor(private routerExtensions:RouterExtensions,public userService: UserService) {
   }
 
-  showadmin() {
-    this.admin = !this.admin;
+  gotopage(page) {
+    switch (page) {
+      case 'onde':
+        var loc;
+        //this.locationService.getEndFromlatlong(loc);
+        this.routerExtensions.navigate(["/items"], { clearHistory: false });
+        //console.dir(loc);
+        break;
+      case 'oque':
+        this.routerExtensions.navigate(["/items"], { clearHistory: false });
+        break;
+    }
   }
 
 
   ngOnInit() {
-    this.page.actionBarHidden = true;
-    //this.page.backgroundImage = "res://bg_login";
+
   }
 
-  submit() {
-    if (this.isLoggingIn)
-      this.userService.login();
-    else
-      this.userService.register(this);
-  }
 
-  verifytoken() {
-    this.userService.verifytoken(this);
-  }
-
-  toggleDisplay() {
-    this.isLoggingIn = !this.isLoggingIn;
-    let container = <View>this.container.nativeElement;
-    container.animate({
-      backgroundColor: this.isLoggingIn ? new Color("white") : new Color("#601217"),
-      duration: 200
-    });
-  }
 }

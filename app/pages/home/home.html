@@ -1,14 +1,20 @@
-<Page [visibility]="userService.user.goodtoken?'hidden':'visible'" style="background-image:url('res://logo');background-size:cover ">
-    <StackLayout #container class="cmain">
-        <!-- <Image src="res://icon" stretch="aspectFill" height="60" width="60" horizontalAlignment="center"></Image> -->
-
-        <TextField visibility="{{admin?'visible':'hidden'}}" style="background-color: white" hint="Email" keyboardType="email" [(ngModel)]="userService.user.email" autocorrect="false" autocapitalizationType="none"></TextField>
-        <TextField visibility="{{admin?'visible':'hidden'}}" style="background-color: white" hint="Senha" secure="true" [(ngModel)]="userService.user.senha"></TextField>
-        <FlexboxLayout style="color:rgb(167, 141, 141);padding: 10" justifyContent="center" visibility="{{isLoggingIn?'visible':'hidden'}}">
-            <Label style="margin-right: 10;color: black" text="Administrador" class="p-10"></Label>
-            <Switch (tap)=showadmin() style="color:red"></Switch>
-        </FlexboxLayout>
-        <Button [text]="isLoggingIn ? 'Entrar' : 'Cadastrar'" class="submit-button" (tap)="submit()"></Button>
-        <Button visibility="{{admin?'visible':'hidden'}}" [text]="isLoggingIn ? 'Cadastrar' : 'Voltar ao Login'" (tap)="toggleDisplay()"></Button>
-    </StackLayout>
-</Page>
+<ActionBar title="BomDeIr" class="action-bar">
+</ActionBar>
+<StackLayout style="background-color: rgb(56, 52, 52)" horizontalAlignment="center">
+    <ScrollView style="margin-top: 10" width="100%">
+        <StackLayout>
+            <StackLayout width="100" horizontalAlignment="center" (tap)="gotopage('onde')">
+                <Image src="http://www.athena3d.com.br/bomdeir/imgs/onde.png"></Image>
+                <Label horizontalAlignment="center" textWrap="true" text="ONDE?"></Label>
+            </StackLayout>
+            <StackLayout width="100" horizontalAlignment="center" (tap)="gotopage('oque')">
+                <Image src="http://www.athena3d.com.br/bomdeir/imgs/oque.png"></Image>
+                <Label horizontalAlignment="center" textWrap="true" text="O QUE?"></Label>
+            </StackLayout>
+            <StackLayout width="100" horizontalAlignment="center" (tap)="gotopage('quando')">
+                <Image src="http://www.athena3d.com.br/bomdeir/imgs/quando.png"></Image>
+                <Label horizontalAlignment="center" textWrap="true" text="QUANDO?"></Label>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</StackLayout>

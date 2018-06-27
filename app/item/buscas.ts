@@ -10,11 +10,9 @@ import { TextField } from "ui/text-field";
 import { ActivatedRoute } from "@angular/router";
 import { TimePicker } from "ui/time-picker";
 import { DatePicker } from "ui/date-picker";
-
 import { SearchBar } from "ui/search-bar";
 import { ItemService } from "./item.service";
 import { Item } from "./item";
-
 
 @Component({
   moduleId: module.id,

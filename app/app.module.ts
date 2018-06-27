@@ -16,6 +16,7 @@ import { LocaisComponent } from "./item/locais";
 import { BuscasComponent } from "./item/buscas";
 
 import { LoginComponent } from "./pages/login/login.component";
+import { HomeComponent } from "./pages/home/home.component";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { User } from "./shared/user/user";
 import { UserService } from "./shared/user/user.service";
@@ -43,6 +44,7 @@ import { DbService } from "./shared/db/db.service";
         ItemDetailComponent,
         SubItemDetailComponent,
         LoginComponent,
+        HomeComponent,
         CepComponent,
         EventosComponent,
         BuscaCepComponent,
